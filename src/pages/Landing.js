@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Landing.css'
 import Logo from '../assets/logoLarge.svg'
 import Gallery from '../components/Gallery'
 import Login from '../components/Login'
 
 const Landing = (props) => {
-  const handleShow = () => props.setIsLogin(true)
-  console.log(props)
+  const [showState, setShowState] = useState(false)
+  
+  const handleShow = () =>{
+    setShowState((showState) => showState = !showState )
+  }
+
   return (
     <div className='landing' id='home'>
       <div className='landing-left'>
@@ -30,13 +34,12 @@ const Landing = (props) => {
           </ul>
         </div>
       </div>
-      <div style={{ position: 'absolute', top: 0 }}>
-        <Login />
-      </div>
+
+      <Login show={showState}/>
 
       <div className='landing-right'>
         <div className='landing-image'>
-          <Gallery />
+          {/* <Gallery /> */}
         </div>
       </div>
     </div>

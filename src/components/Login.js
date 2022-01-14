@@ -1,17 +1,17 @@
+import '../components/Login.css'
 import React, { useState } from 'react'
 import { Modal, Form, Button } from 'react-bootstrap'
-import '../components/Login.css'
 
 const Login = (props) => {
-  const [isLogin, setIsLogin] = useState(props.setIsLogin)
-
-  const handleClose = () => setIsLogin(false)
+  
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
 
   return (
     <>
       <Modal
         size='sm'
-        show={true}
+        show={props.show}
         onHide={handleClose}
         aria-labelledby='contained-modal-title-vcenter'
         centered
